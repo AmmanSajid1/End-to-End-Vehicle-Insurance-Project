@@ -22,6 +22,7 @@ def configure_logger():
 
     # Create a custom logger 
     logger = logging.getLogger()
+    logging.getLogger('pymongo').setLevel(logging.CRITICAL) # Supress excessive pymongo logs
     logger.setLevel(logging.DEBUG)
 
     # Define formatter
