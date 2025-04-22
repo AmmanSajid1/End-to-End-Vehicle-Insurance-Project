@@ -139,8 +139,21 @@ conda activate vehicle
 # Step 2: Install dependencies
 pip install -r requirements.txt
 
+# Step 3: Set MONGODB_URL environment variable
+# Windows #
+$env:MONGODB_URL = "mongodb+srv://<username>:<password>......"
+
+# Bash #
+export MONGODB_URL="mongodb+srv://<username>:<password>......"
+
 # Step 3: Start FastAPI server
 python app.py
+
+# Step 4: Train model using /train endpoint
+`http://localhost:5000/train`
+
+# Step 5: Run prediction using / endpoint and enjoy!!!
+`http://localhost:5000/`
 ```
 
 Access the API docs at:  
@@ -152,7 +165,7 @@ Access the API docs at:
 
 - CI/CD with **GitHub Actions** and **self-hosted runner** on EC2
 - Dockerized deployment pushed to **AWS ECR**
-- EC2 instance hosts the container via exposed **port 5080**
+- EC2 instance hosts the container via exposed **port 5000**
 - Secure keys & secrets managed via GitHub secrets
 
 ---
