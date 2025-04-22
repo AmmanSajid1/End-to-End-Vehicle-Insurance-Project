@@ -23,6 +23,9 @@ def configure_logger():
     # Create a custom logger 
     logger = logging.getLogger()
     logging.getLogger('pymongo').setLevel(logging.CRITICAL) # Supress excessive pymongo logs
+    logging.getLogger("multipart").setLevel(logging.ERROR) # Supress excessive python multipart logs
+    logging.getLogger('boto').setLevel(logging.CRITICAL) # Supress excessive boto3 logs
+    logging.getLogger('botocore').setLevel(logging.CRITICAL) # Supress excessive botocore logs
     logger.setLevel(logging.DEBUG)
 
     # Define formatter
